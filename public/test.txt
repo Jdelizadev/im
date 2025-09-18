@@ -1,0 +1,64 @@
+
+.result {
+grid-area: ans;
+}
+.btnone {
+grid-area: one;
+}
+.btntwo {
+grid-area: two;
+}
+.btnthree {
+grid-area: three;
+}
+.btnfour {
+grid-area: four;
+}
+.btnfive {
+grid-area: five;
+}
+.btnsix {
+grid-area: six;
+}
+.btnseven {
+grid-area: seven;
+}
+.btneigth {
+grid-area: eigth;
+}
+.btnnine {
+grid-area: nine;
+}
+.btnzero {
+grid-area: zero;
+}
+.btnsum {
+grid-area: sum;
+}
+.btnless {
+grid-area: less;
+}
+.btnch {
+grid-area: ch;
+}
+.btnwhite {
+grid-area: white;
+}
+.btnex {
+    grid-area: ex;
+}
+.btnye {
+    grid-area: ye;
+}
+.btnopnp {
+    grid-area: opnp;
+}
+.btnclsp {
+    grid-area: clsp;
+}
+.btntotal {
+    grid-area: total;
+}
+.btnresolve {
+    grid-area: rsl;
+}

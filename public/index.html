@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section class="section">
+            <div class="calc__answer">
+                <span id="operation" class="display"></span>
+                <span id="result"></span>
+            </div>            
+                <div class="calc__container">
+                    <button data-value="1" class="calc__btn btnone">1</button>
+                    <button data-value="2" class="calc__btn btntwo">2</button>
+                    <button data-value="3" class="calc__btn btnthree">3</button>
+                    <button data-value="+" class="calc__btn btnadd sign">+</button>
+                    <button data-value="4" class="calc__btn btnfour">4</button>
+                    <button data-value="5" class="calc__btn btnfive">5</button>
+                    <button data-value="6" class="calc__btn btnsix">6</button>
+                    <button data-value="-" class="calc__btn btnless sign">-</button>
+                    <button data-value="7" class="calc__btn btnseven">7</button>
+                    <button data-value="8" class="calc__btn btneigth">8</button>
+                    <button data-value="9" class="calc__btn btnnine">9</button>
+                    <button data-value="x" class="calc__btn btnoex sign">x</button>
+                    <button data-value="" class="calc__btn btnosh">+/-</button>
+                    <button data-value="0" class="calc__btn btnozr">0</button>
+                    <button data-value="." class="calc__btn btnpnt">.</button>
+                    <button data-value="y" class="calc__btn btnye sign">y</button>
+                    <button data-value="(" class="calc__btn btnopnp">(</button>
+                    <button data-value=")" class="calc__btn btnclsp">)</button>
+                    <button data-value=""  id="btnclear" class="btnwht">C</button>
+                    <button data-value="=" id="btntotal" class="btntotal">=</button>
+                    <button class="calc__btn btnresolve">Response</button>
+                    <button class="savebtn" id="savebtn">M</button>     
+                </div>
+                <button id="DropDownList" class="DropDownList">DropDownList</button>
+                <div class="extras">
+                    <button id="btn__history">Click to show History<span class="history"></span></button></button>
+                    <br>
+                    <div class="search">
+                        <label for="">Search by result:</label> 
+                        <input type="text" id="data" name="data" placeholder="Set the result and get op"> 
+                    </div>
+                    
+                </div>
+        </section>
+        
+    </main>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
