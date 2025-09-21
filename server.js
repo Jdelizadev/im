@@ -45,8 +45,41 @@ console.log(expression,result)
          }
 });
 
-//select * from operations order by created_at limit 4
- 
+app.get('/api/history', async (req, res) => {
+   try {
+      const sqlQuery = 'SELECT expression, result FROM operations ORDER BY operation_id DESC LIMIT 2'
+
+         const [rows] = await pool.query(sqlQuery)
+         res.status(200).json(rows)
+
+   } catch (error) {
+      console.error('Error al obtener el historial de la BD:', error)
+      res.status(500).json({error: 'Error interno del servidor al obtener el historial'})
+   }
+})
+
+app.get('/api/search', async (req, res) => {
+    const { q } = req.query;
+
+    if (!q) {
+        return res.status(400).json({ error: 'El término de búsqueda es requerido.' });
+    }
+
+    try {
+        const sqlQuery = 'SELECT expression, result FROM operations WHERE result = ? OR expression LIKE ?';
+        
+        const searchTermLike = `%${q}%`;
+
+        const [rows] = await pool.query(sqlQuery, [q, searchTermLike]);
+
+        res.status(200).json(rows);
+
+    } catch (error) {
+        console.error('Error al buscar en la base de datos:', error);
+        res.status(500).json({ error: 'Error interno del servidor al realizar la búsqueda.' });
+    }
+});
+
  app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}/`)
  })

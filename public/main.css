@@ -1,6 +1,7 @@
 :root {
   --main-bg: rgb(229, 237, 237);
   --section-bg: grey;
+  --section-bg2: rgb(97, 96, 96);
   --button-default-bg: rgb(162, 159, 159);
   --button-sign-bg: rgb(77, 73, 73);
   --button-total-bg: rgb(96, 92, 92);
@@ -18,8 +19,10 @@
 
 main {
     font-size: 2rem;
-    display: grid;
+    display: flex;
     place-items: center; 
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 150vh; 
     background-color: var(--main-bg);
@@ -104,9 +107,9 @@ input {
 
 #data {
     border: solid 2px;
-    border-radius: 20px;
+    border-radius: 5px;
     height: 40px;
-    width: 200px;
+    width: 300px;
 }
 
 .savebtn { grid-area: 6 / 4 / 7 / 5; }
@@ -124,4 +127,61 @@ input {
 
 .hidden {
     visibility: hidden;
+}
+
+#extras {
+    /* Revisar si en el monitor funciona este w */
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 340px 340px;
+    height: 720px;
+    width: 350px;
+    background-color: var(--section-bg2);
+    padding: 5px;
+    gap: 0;
+}
+.extra__btn1 {
+    height: 60px;
+    width: 300px;
+    background-color: var(--button-resolve-bg);
+    color: black;
+}
+
+.extra__btn2 {
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    background-color: var(--button-resolve-bg);
+    color: black;
+}
+
+.history__button-text {
+    font-size: 1.90rem
+}
+
+.history {
+    color: white;
+    margin: 0;
+    width: 100%;
+    height: 90%;
+}
+
+.history__text {
+    text-align: center;
+    height: 220px;
+    width: 300px;
+}
+
+.search {
+    color: white;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.search__text {
+    text-align: center;
+    margin-top: 15px;
+    height: 220px;
+    width: 300px;
 }

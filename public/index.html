@@ -38,17 +38,23 @@
                     <button class="calc__btn btnresolve">Response</button>
                     <button class="savebtn" id="savebtn">M</button>     
                 </div>
-                <button id="DropDownList" class="DropDownList">DropDownList</button>
-                <div class="extras">
-                    <button id="btn__history">Click to show History<span class="history"></span></button></button>
-                    <br>
-                    <div class="search">
-                        <label for="">Search by result:</label> 
-                        <input type="text" id="data" name="data" placeholder="Set the result and get op"> 
-                    </div>
-                </div>
+                <button id="DropDownList" class="DropDownList">DropRightList</button>
         </section>
-        
+        <section class="extras" id="extras">
+                    <div class="history">
+                        <button class="extra__btn1" id="btn__history"><p class="history__button-text">Click to show History</p></button>
+                        <br>
+                        <br>
+                        <div class="history__text"></div>
+                    </div>
+                    
+                    <div class="search">
+                        <label for="data"></label> 
+                        <input type="text" id="data" form="data" name="data" placeholder="Search by operation or answer">
+                        <button id="search__btn" type="submit" class="extra__btn2">Search</button> 
+                        <div class="search__text"></div>
+                    </div>
+        </section>
     </main>
     <script type="module" src="./main.js"></script>
 </body>
