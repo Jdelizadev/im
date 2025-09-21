@@ -21,14 +21,14 @@ main {
     display: grid;
     place-items: center; 
     width: 100%;
-    height: 100vh; 
+    height: 150vh; 
     background-color: var(--main-bg);
 }
 
 section {
     display: grid;
     background-color: var(--section-bg);
-    width: 90%;
+    width: 400px;
     max-width: 450px;
     padding: 20px;
     margin: 50px 0 200px 0;
@@ -71,7 +71,7 @@ button:active {
 
 .calc__container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 65px);
     grid-template-rows: repeat(5, 50px) 90px;
     padding: 30px;
     gap: 15px;

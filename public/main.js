@@ -92,12 +92,13 @@ savebtn.addEventListener('click', async () => {
 });
 
 dropbtn.addEventListener('click', () => {
-    if(savebtn.style.display === 'none' || extras.style.display === 'none') {
-        savebtn.style.display = 'block'
+
+    savebtn.classList.toggle('hidden')
+
+    if(extras.style.display === 'none') {
         extras.style.display = 'block'
     }  else {
         extras.style.display = 'none'
-        savebtn.style.display = 'none' 
     }
     
     
