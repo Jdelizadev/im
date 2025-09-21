@@ -92,8 +92,14 @@ savebtn.addEventListener('click', async () => {
 });
 
 dropbtn.addEventListener('click', () => {
-    savebtn.classList.toggle('hidden');
-    extras.classList.toggle('hidden');
+    if(savebtn.style.display === 'none' || extras.style.display === 'none') {
+        savebtn.style.display = 'block'
+        extras.style.display = 'block'
+    }  else {
+        extras.style.display = 'none'
+        savebtn.style.display = 'none' 
+    }
+    
     
 })
 
