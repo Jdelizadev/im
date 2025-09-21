@@ -14,13 +14,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 // --- Configuración de la Base de Datos ---
 const pool = mysql.createPool({
             host: '127.0.0.1',
-            user: 'root',
-            password: 'T35t@2023!',
+            user: 'user2',
+            password: 'user2',
             database: 'rainde',
             waitForConnections: true,
             connectionLimit: 10,
             queueLimit: 0,
-            port: 3306
+            port: 3307
             });
 
 app.post('/api/operations', async (req, res) => {

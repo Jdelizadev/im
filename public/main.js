@@ -92,19 +92,13 @@ savebtn.addEventListener('click', async () => {
 });
 
 dropbtn.addEventListener('click', () => {
-    if(savebtn.style.display === 'none' || extras.style.display === 'none') {
-        savebtn.style.display = 'block'
-        extras.style.display = 'block'
-    }  else {
-        extras.style.display = 'none'
-        savebtn.style.display = 'none' 
-    }
-    
+    savebtn.classList.toggle('hidden');
+    extras.classList.toggle('hidden');
     
 })
 
 btnHistory.addEventListener('click', () => {
     
-} )
+})
 
 

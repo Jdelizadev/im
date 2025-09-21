@@ -1,47 +1,87 @@
-*{
+:root {
+  --main-bg: rgb(229, 237, 237);
+  --section-bg: grey;
+  --button-default-bg: rgb(162, 159, 159);
+  --button-sign-bg: rgb(77, 73, 73);
+  --button-total-bg: rgb(96, 92, 92);
+  --button-resolve-bg: rgba(210, 42, 42, 0.426);
+  --button-white-bg: rgb(39, 37, 37);
+  --button-save-bg: rgb(203, 193, 193);
+  --button-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 main {
-    font-size: 3rem;
+    font-size: 2rem;
     display: grid;
-    justify-content: center;
+    place-items: center; 
     width: 100%;
-    height: 100%;
-    background-color: rgb(229, 237, 237);
-    
+    height: 100vh; 
+    background-color: var(--main-bg);
 }
+
 section {
     display: grid;
-    background-color: grey;
-    width: 700px;
-    height: auto;
+    background-color: var(--section-bg);
+    width: 90%;
+    max-width: 450px;
     padding: 20px;
-    margin-top: 50px;
+    margin: 50px 0 200px 0;
     place-content: center;
     border: solid 2px black;
-    margin-bottom: 200px;
     border-radius: 20px;
 }
-.calc__container {
-    display: grid;
-    grid-template-columns: repeat(4, 140px);
-    grid-template-rows: 60px 60px 60px 60px 60px 115px;
-    padding: 30px;
-    gap: 15px;
+
+button {
+    background: none;
+    border: solid 2px black;
+    padding: 0;
+    font: inherit;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: var(--button-shadow);
+}
+button:hover {
+    background-color: rgba(38, 34, 34, 0.44);
+}
+button:active {
+    background-color: var(--button-default-bg);
+    transform: scale(0.92);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .calc__btn {
     border: solid 2px black;
-    border-radius: 10px;
+}
+.sign { background-color: var(--button-sign-bg); }
+.btntotal { background-color: var(--button-total-bg); }
+.btnresolve { background-color: var(--button-resolve-bg); }
+.savebtn { background-color: var(--button-save-bg); }
+.btnwht { 
+    color: white; 
+    background-color: var(--button-white-bg); 
+}
+
+.calc__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 50px) 90px;
+    padding: 30px;
+    gap: 15px;
 }
 
 .calc__answer {
-    place-content: center;
-    height: 175px;
-    width: 665px;
+    display: grid;
+    place-items: center;
+    height: 120px;
+    width: 100%;
     font-size: 40px;
     border: solid 2px black; 
     background-color: white;
@@ -49,85 +89,39 @@ section {
 }
 
 .btnresolve {
-    width: 220px;
-    height: 100px;
+    width: auto;
+    height: 80px;
     place-self: center;
     grid-column: 1 / 4;
     padding: 10px;
 }
 
-
-button {
-   background: none;
-   border: solid 2px black;
-   padding: 0;
-   font: inherit;
-   border-radius: 10px;
-   cursor: pointer;
-   outline: none;
-   transition: all 0.2a ease-in-out;
-   box-shadow: 6px 6px 12px #bebebe,
-   -6px -6px 12px #ffffff;
-}
-button:hover{
-    background-color: rgba(38, 34, 34, 0.44);
-}
-
-button:active{
-    background-color: rgb(162, 159, 159);
-    transform: scale(0.92);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-.sign {
-    background-color: rgb(77, 73, 73);
-}
-
-.btntotal {
-    background-color: rgb(96, 92, 92);
-}
-.btnresolve {
-    background-color: rgba(210, 42, 42, 0.426);
-}
-
 input {
+    font-size: 20px;
     height: 30px;
     width: 30px;
-}
-.first {
-    padding-left: 70px;
-}
-
-input {
-    font-size: 20px ;
-}
-
-.savebtn {
-    grid-area: 6 / 4 / 7 / 5;
-}
-.savebtn {
-    background-color: rgb(203, 193, 193);
-}
-.btnwht {
-    color: white;
-    background-color: rgb(39, 37, 37);
-}
-.display {
-    padding-left: 60px;
 }
 
 #data {
     border: solid 2px;
     border-radius: 20px;
-    height: 60px;
-    width: 250px;
+    height: 40px;
+    width: 200px;
 }
-.extras {
+
+.savebtn { grid-area: 6 / 4 / 7 / 5; }
+
+.first { padding-left: 70px; }
+.display { padding-left: 60px; }
+.extras, .search, .DropDownList {
     margin-top: 50px;
 }
-.search {
-    margin-top: 50px;
-}
-.DropDownList{
+
+.DropDownList {
     color: white;
     background-color: #302f2f;
+}
+
+.hidden {
+    visibility: hidden;
 }

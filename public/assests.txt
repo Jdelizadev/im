@@ -1,0 +1,6 @@
+
+CREATE TABLE operations (
+    operation_id int primary key auto_increment,
+    expression varchar(255) not null,
+    result varchar(255) not null
+);
