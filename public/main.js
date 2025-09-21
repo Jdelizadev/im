@@ -139,10 +139,23 @@ btnHistory.addEventListener('click', async () => {
             historyText.textContent = 'No hay historial para mostrar.';
         } else {
             data.forEach(operation => {
-                const operationElement = document.createElement('p');
-                operationElement.textContent = `${operation.expression} = ${operation.result}`;                
-                historyText.appendChild(operationElement);
-            });
+               const operationDiv = document.createElement('div');
+               operationDiv.className = 'history-item'; // Para estilos opcionales
+
+               const operationText = document.createElement('span');
+               operationText.textContent = `${operation.expression} = ${operation.result}`;
+
+               const deleteButton = document.createElement('button');
+               deleteButton.textContent = 'X'; 
+               deleteButton.className = 'delete-btn';
+               
+               deleteButton.dataset.id = operation.operation_id;
+
+               operationDiv.appendChild(operationText);
+               operationDiv.appendChild(deleteButton);
+
+               historyText.appendChild(operationDiv);
+           });
         }
 
     } catch (error) {
@@ -150,6 +163,34 @@ btnHistory.addEventListener('click', async () => {
         historyText.textContent = 'Error al cargar el historial.';
     }
 })
+
+historyText.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        
+        const idToDelete = e.target.dataset.id;
+        
+        if (!confirm('¿Estás seguro de que quieres borrar esta operación?')) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/operations/${idToDelete}`, {
+                method: 'DELETE' 
+            });
+
+            if (response.ok) {
+                e.target.parentElement.remove();
+                alert('Operación borrada.');
+            } else {
+                alert('Error: No se pudo borrar la operación.');
+            }
+        } catch (error) {
+            console.error('Error de red al intentar borrar:', error);
+            alert('Error de conexión al intentar borrar.');
+        }
+    }
+});
+
 
 searchBtn.addEventListener('click', async () => {
     const searchTerm = searchInput.value.trim();

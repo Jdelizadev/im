@@ -47,7 +47,7 @@ console.log(expression,result)
 
 app.get('/api/history', async (req, res) => {
    try {
-      const sqlQuery = 'SELECT expression, result FROM operations ORDER BY operation_id DESC LIMIT 2'
+      const sqlQuery = 'SELECT operation_id, expression, result FROM operations ORDER BY operation_id DESC LIMIT 2'
 
          const [rows] = await pool.query(sqlQuery)
          res.status(200).json(rows)
@@ -77,6 +77,25 @@ app.get('/api/search', async (req, res) => {
     } catch (error) {
         console.error('Error al buscar en la base de datos:', error);
         res.status(500).json({ error: 'Error interno del servidor al realizar la búsqueda.' });
+    }
+});
+
+app.delete('/api/operations/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const sqlQuery = 'DELETE FROM operations WHERE operation_id = ?';
+        
+        const [result] = await pool.query(sqlQuery, [id]);
+
+        if (result.affectedRows > 0) {
+            res.status(200).json({ message: 'Operación eliminada exitosamente.' });
+        } else {
+            res.status(404).json({ error: 'No se encontró la operación con ese ID.' });
+        }
+    } catch (error) {
+        console.error('Error al eliminar la operación:', error);
+        res.status(500).json({ error: 'Error interno del servidor.' });
     }
 });
 
