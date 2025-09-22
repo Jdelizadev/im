@@ -60,6 +60,7 @@ app.get('/api/history', async (req, res) => {
 
 app.get('/api/search', async (req, res) => {
     const { q } = req.query;
+    console.log(req.query)
 
     if (!q) {
         return res.status(400).json({ error: 'El término de búsqueda es requerido.' });
@@ -87,7 +88,7 @@ app.delete('/api/operations/:id', async (req, res) => {
         const sqlQuery = 'DELETE FROM operations WHERE operation_id = ?';
         
         const [result] = await pool.query(sqlQuery, [id]);
-
+        console.log(result)
         if (result.affectedRows > 0) {
             res.status(200).json({ message: 'Operación eliminada exitosamente.' });
         } else {

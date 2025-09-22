@@ -95,7 +95,7 @@ savebtn.addEventListener('click', async () => {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
-        },
+            },
             body: JSON.stringify({ expression, result:resultado }) 
             });
 
@@ -133,6 +133,7 @@ btnHistory.addEventListener('click', async () => {
         }
 
         const data = await response.json()
+        console.log(data)
         historyText.innerHTML = ''
 
         if (data.length === 0) {
@@ -140,7 +141,7 @@ btnHistory.addEventListener('click', async () => {
         } else {
             data.forEach(operation => {
                const operationDiv = document.createElement('div');
-               operationDiv.className = 'history-item'; // Para estilos opcionales
+               operationDiv.className = 'history-item';
 
                const operationText = document.createElement('span');
                operationText.textContent = `${operation.expression} = ${operation.result}`;
